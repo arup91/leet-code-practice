@@ -15,6 +15,10 @@ class MyLinkedList {
             this.val = val;
         }
     }
+    
+    public Node getNode(int val) {
+        return new Node(val);
+    }
 
     /** Initialize your data structure here. */
     public MyLinkedList() {
@@ -57,7 +61,7 @@ class MyLinkedList {
             head = node;
         }
         size++;
-        printLinkedList();
+        printLinkedList(head);
     }
 
     /** Append a node of value val to the last element of the linked list. */
@@ -73,7 +77,7 @@ class MyLinkedList {
         Node newNode = new Node(val);
         node.next = newNode;
         size++;
-        printLinkedList();
+        printLinkedList(head);
     }
 
     /**
@@ -86,7 +90,7 @@ class MyLinkedList {
         Node newNode = new Node(val);
         int i = 0;
         if (index > size) {
-            printLinkedList();
+            printLinkedList(head);
             return;
         }
         if (index == size) {
@@ -109,14 +113,14 @@ class MyLinkedList {
                 i++;
             }
         }
-        printLinkedList();
+        printLinkedList(head);
     }
 
     /** Delete the index-th node in the linked list, if the index is valid. */
     public void deleteAtIndex(int index) {
         int i = 0;
         if (index >= size) {
-            printLinkedList();
+            printLinkedList(head);
             return;
         }
         if (this.head == null) {
@@ -141,10 +145,10 @@ class MyLinkedList {
                 i++;
             }
         }
-        printLinkedList();
+        printLinkedList(head);
     }
 
-    public void printLinkedList() {
+    public void printLinkedList(Node head) {
         if (head == null) {
             System.out.println(-1);
             return;
